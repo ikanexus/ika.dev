@@ -19,7 +19,7 @@
 		onMount(() => {
 			const interval = setInterval(() => {
 				image = nextImage();
-			}, 3000);
+			}, 10000);
 
 			return () => {
 				clearInterval(interval);
