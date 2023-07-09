@@ -5,7 +5,7 @@
 	/** @type {string[]} images to use */
 	export let images;
 	let numImages = images.length;
-	let currentIndex = 0;
+	let currentIndex = -1;
 	const nextImage = () => {
 		if (currentIndex++ >= numImages - 1) {
 			currentIndex = 0;

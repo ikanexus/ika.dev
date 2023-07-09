@@ -1,6 +1,6 @@
 <script>
 	import { fade } from 'svelte/transition';
-	import Icon from '@iconify/svelte';
+	import Icon, { getIcon, loadIcons } from '@iconify/svelte';
 	import { typewriter } from '@svelteuidev/motion';
 	import Figure from '../components/Figure.svelte';
 	const links = [
@@ -10,6 +10,8 @@
 			icon: 'mdi:github'
 		}
 	];
+	loadIcons(links.flatMap((link) => link.icon))
+	
 	const images = ['base.png', 'pestino.png'];
 	let visible = false;
 
