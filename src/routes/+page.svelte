@@ -1,20 +1,33 @@
 <script>
+	import { fade } from 'svelte/transition';
+  import { typewriter } from '@svelteuidev/motion';
+	import Figure from '../components/Figure.svelte';
 	const links = [
 		{
 			name: 'GitHub',
 			href: 'https://github.com/ikanexus'
 		}
 	];
+	const images = ['base.png', 'pestino.png'];
+	let visible = false;
+
+	const showName = () => {
+		visible = true;
+	};
+
+	const hideName = () => {
+		visible = false;
+	};
 </script>
 
-<figure class="p-8">
-	<img class="mask w-64 mask-circle mx-auto" src="/profile.png" alt="IkaNexus" />
-</figure>
-<h1 class="text-4xl pb-8">Ika</h1>
+<Figure {images} />
+	<h1 class="text-4xl mx-auto pb-8" on:mouseenter={showName} on:mouseleave={hideName}>
+		Ika{#key visible}<span in:typewriter={{}} out:fade class={visible ? '' : 'hidden'}>Nexus</span>{/key}
+	</h1>
 <ul>
-{#each links as link}
-  <li class="p-2">
-    <a href={link.href} class="btn btn-outline btn-lg btn-block">{link.name}</a>
-  </li>
-{/each}
+	{#each links as link}
+		<li class="p-2">
+			<a href={link.href} class="btn btn-outline btn-lg btn-block">{link.name}</a>
+		</li>
+	{/each}
 </ul>
