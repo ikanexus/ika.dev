@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  publish_docs:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -19,18 +19,13 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "16"
+          cache: "pnpm"
 
-      - name: Cache NPM modules
-        id: npm-cache
-        uses: actions/cache@v3
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
         with:
-          path: node_modules
-          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-npm-
-
-      - name: Install dependencies
-        run: pnpm install
+          version: latest
+          run_install: true
 
       - name: Build Site
         run: pnpm generate
