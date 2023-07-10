@@ -8,10 +8,15 @@
 			name: 'GitHub',
 			href: 'https://github.com/ikanexus',
 			icon: 'mdi:github'
+		},
+		{
+			name: 'Twitter',
+			href: 'https://twitter.com/ikanexus',
+			icon: 'mdi:twitter'
 		}
 	];
-	loadIcons(links.flatMap((link) => link.icon))
-	
+	loadIcons(links.flatMap((link) => link.icon));
+
 	const images = ['base.png', 'pestino.png'];
 	let visible = false;
 
