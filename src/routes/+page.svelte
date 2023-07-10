@@ -1,6 +1,6 @@
 <script>
 	import { fade } from 'svelte/transition';
-	import Icon, { getIcon, loadIcons } from '@iconify/svelte';
+	import Icon, { loadIcons } from '@iconify/svelte';
 	import { typewriter } from '@svelteuidev/motion';
 	import Figure from '../components/Figure.svelte';
 	const links = [
