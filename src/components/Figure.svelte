@@ -2,8 +2,8 @@
   import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';
 
-  import baseImage from '../../assets/profiles/base.webp';
-  import pestinoImage from '../../assets/profiles/pestino.webp';
+  import baseImage from '../profiles/base.webp';
+  import pestinoImage from '../profiles/pestino.webp';
 
   let images = [baseImage.src, pestinoImage.src];
   let numImages = images.length;
