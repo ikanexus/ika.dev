@@ -8,7 +8,7 @@ export default {
     extend: {
       animation: {
         typewriter: "typewriter 1s steps(5) 1s 1 normal both",
-        blinkCursor: "blinkCursor 750ms steps(10) infinite normal",
+        blinkCursor: "blinkCursor 900ms steps(5) infinite normal",
       },
       keyframes: {
         typewriter: {
@@ -16,8 +16,8 @@ export default {
           to: { width: "7rem" },
         },
         blinkCursor: {
-          from: { borderRightColor: "currentColor" },
-          to: { borderRightColor: "transparent" },
+          from: { borderBottomColor: "currentColor" },
+          to: { borderBottomColor: "transparent" },
         },
       },
     },
