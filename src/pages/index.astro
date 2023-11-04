@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Figure from '../components/Figure.svelte';
+import Name from '../components/Name.svelte';
+import { Icon } from 'astro-icon';
+
+const links = [
+  {
+    name: 'GitHub',
+    href: 'https://github.com/ikanexus',
+    icon: 'mdi:github'
+  },
+  {
+    name: 'Twitter',
+    href: 'https://twitter.com/ikanexus',
+    icon: 'mdi:twitter'
+  }
+];
+
+---
+
+<Layout title="IkaNexus">
+  <main>
+    <Figure client:idle />
+    <Name client:idle /> 
+    <ul>
+      {links.map(link => (
+        <li class="p-2">
+          <a href={link.href} class="btn btn-outline btn-lg btn-block">
+            <Icon name={link.icon} height="1em" width="1em" />
+            {link.name}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </main>
+</Layout>
+
