@@ -26,10 +26,10 @@ const links = [
         >Nexus</span
       ><span class="border-r-current border-r-8 animate-blinkCursor"></span>
     </h1>
-    <ul>
+    <ul class="flex flex-col gap-4">
       {
         links.map((link) => (
-          <li class="p-2">
+          <li>
             <a href={link.href} class="btn btn-outline btn-lg btn-block">
               <Icon name={link.icon} height="1em" width="1em" />
               {link.name}
