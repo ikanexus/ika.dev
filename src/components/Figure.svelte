@@ -7,21 +7,17 @@
 
   let images = [baseImage.src, pestinoImage.src];
   let numImages = images.length;
-  let currentIndex = -1;
+  let currentIndex = 0;
   const nextImage = () => {
-    if (++currentIndex >= numImages) {
-      currentIndex = 0;
-    }
-    return images[currentIndex];
+    if (++currentIndex >= numImages) currentIndex = 0
   };
 
-  let image = nextImage();
 
   if (numImages != 0 && numImages > 1) {
     onMount(() => {
       const interval = setInterval(() => {
-        image = nextImage();
-        }, 10000);
+        nextImage();
+      }, 10000);
 
       return () => {
         clearInterval(interval);
@@ -32,13 +28,8 @@
 
 <figure class="h-74">
   <div class="my-8 w-64 h-64 relative mx-auto">
-    {#key image}
-    <img
-      transition:fade
-      class="mask w-64 h-64 mask-circle absolute top-0"
-      src={image}
-      alt="IkaNexus"
-    />
-    {/key}
+    {#each images as image, index (index)}
+      <img transition:fade class="mask w-64 h-64 mask-circle absolute top-0" class:opacity-0={currentIndex !== index} class:opacity-100={currentIndex === index} src={image} alt="IkaNexus">
+    {/each}
   </div>
 </figure>
