@@ -1,38 +1,42 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Figure from '../components/Figure.svelte';
-import Name from '../components/Name.svelte';
-import { Icon } from 'astro-icon';
+import Layout from "../layouts/Layout.astro";
+import Figure from "../components/Figure.svelte";
+import { Icon } from "astro-icon";
 
 const links = [
   {
-    name: 'GitHub',
-    href: 'https://github.com/ikanexus',
-    icon: 'mdi:github'
+    name: "GitHub",
+    href: "https://github.com/ikanexus",
+    icon: "mdi:github",
   },
   {
-    name: 'Twitter',
-    href: 'https://twitter.com/ikanexus',
-    icon: 'mdi:twitter'
-  }
+    name: "Twitter",
+    href: "https://twitter.com/ikanexus",
+    icon: "mdi:twitter",
+  },
 ];
-
 ---
 
 <Layout title="IkaNexus">
   <main>
     <Figure client:idle />
-    <Name client:idle /> 
+    <h1 class="text-4xl mx-auto pb-8 group text-center font-mono">
+      Ika<span
+        class="w-0 inline-flex animate-typewriter overflow-hidden whitespace-nowrap"
+        >Nexus</span
+      ><span class="border-r-current border-r-8 animate-blinkCursor"></span>
+    </h1>
     <ul>
-      {links.map(link => (
-        <li class="p-2">
-          <a href={link.href} class="btn btn-outline btn-lg btn-block">
-            <Icon name={link.icon} height="1em" width="1em" />
-            {link.name}
-          </a>
-        </li>
-      ))}
+      {
+        links.map((link) => (
+          <li class="p-2">
+            <a href={link.href} class="btn btn-outline btn-lg btn-block">
+              <Icon name={link.icon} height="1em" width="1em" />
+              {link.name}
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </main>
 </Layout>
-
