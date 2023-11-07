@@ -1,7 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Figure from "../components/Figure.svelte";
-import { Icon } from "astro-icon";
+import Link from "../components/Link.astro";
+import Title from "../components/Title.astro";
 
 const links = [
   {
@@ -20,22 +21,12 @@ const links = [
 <Layout title="IkaNexus">
   <main>
     <Figure client:idle />
-    <h1 class="text-4xl mx-auto pb-8 group text-center font-mono">
-      Ika<span
-        class="w-0 inline-flex animate-typewriter overflow-hidden whitespace-nowrap"
-        >Nexus</span
-      ><span
-        class="inline-flex border-b-current border-b-4 w-4 animate-blinkCursor"
-      ></span>
-    </h1>
+    <Title />
     <ul class="flex flex-col gap-4">
       {
         links.map((link) => (
           <li>
-            <a href={link.href} class="btn btn-outline btn-lg btn-block">
-              <Icon name={link.icon} height="1em" width="1em" />
-              {link.name}
-            </a>
+            <Link data={link} />
           </li>
         ))
       }
