@@ -4,15 +4,15 @@ import { Image, getImage } from "astro:assets";
 import base from "../profiles/base.png";
 import pestino from "../profiles/pestino.png";
 
-const optimisedBase = await getImage({src: base, format: 'webp'})
-const optimisedPestino = await getImage({src: pestino, format: 'webp'})
+const optimisedBase = await getImage({src: base, format: 'webp', width: 256, height: 256})
+const optimisedPestino = await getImage({src: pestino, format: 'webp', width: 256, height: 256})
 
 const images = [optimisedBase]//, optimisedPestino]
 ---
 
 <div class="mx-auto relative h-64 w-64 my-8">
   {
-    images.map((image, index) => <div class="absolute top-0 h-full w-full mask mask-circle" style=`background-image: url(${image.src})` id={`profile-${index}`}></div>)
+    images.map((image, index) => <div class="absolute top-0 h-full w-full mask mask-circle bg-center bg-no-repeat" style={{backgroundImage: `url(${image.src})`}} id={`profile-${index}`}></div>)
   }  
 </div>
 
