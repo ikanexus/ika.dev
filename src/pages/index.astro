@@ -1,8 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Figure from "../components/Figure.svelte";
+// import Figure from "../components/Figure.svelte";
 import Link from "../components/Link.astro";
 import Title from "../components/Title.astro";
+import Profile from "../components/Profile.astro";
 
 const links = [
   {
@@ -20,7 +21,8 @@ const links = [
 
 <Layout title="IkaNexus">
   <main>
-    <Figure client:idle />
+    <!-- <Figure client:idle /> -->
+    <Profile />
     <Title />
     <ul class="flex flex-col gap-4">
       {

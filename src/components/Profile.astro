@@ -1,0 +1,18 @@
+---
+import { Image, getImage } from "astro:assets";
+
+import base from "../profiles/base.png";
+import pestino from "../profiles/pestino.png";
+
+const optimisedBase = await getImage({src: base, format: 'webp'})
+const optimisedPestino = await getImage({src: pestino, format: 'webp'})
+
+const images = [optimisedBase]//, optimisedPestino]
+---
+
+<div class="mx-auto relative h-64 w-64 my-8">
+  {
+    images.map((image, index) => <div class="absolute top-0 h-full w-full mask mask-circle" style=`background-image: url(${image.src})` id={`profile-${index}`}></div>)
+  }  
+</div>
+
