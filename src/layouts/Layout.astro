@@ -20,7 +20,7 @@ const { title } = Astro.props;
       rel="stylesheet"
     />
     <title>{title}</title>
-    <script defer data-domain="ika.gg" src="https://plausible.io/js/script.js"></script>
+    <script defer data-domain="ika.gg" data-api="/stats/api/event" src="/stats/js/script.js"></script>
   </head>
   <body>
     <div class="container mx-auto text-center max-w-sm md:max-w-2xl">
