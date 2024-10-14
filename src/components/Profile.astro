@@ -1,18 +1,52 @@
 ---
-import { Image, getImage } from "astro:assets";
+import { getImage } from "astro:assets";
 
 import base from "../profiles/base.png";
 import pestino from "../profiles/pestino.png";
 
-const optimisedBase = await getImage({src: base, format: 'webp', width: 256, height: 256})
-const optimisedPestino = await getImage({src: pestino, format: 'webp', width: 256, height: 256})
+const optimisedBase = await getImage({
+  src: base,
+  format: "webp",
+  width: 256,
+  height: 256,
+});
+const optimisedPestino = await getImage({
+  src: pestino,
+  format: "webp",
+  width: 256,
+  height: 256,
+});
 
-const images = [optimisedBase]//, optimisedPestino]
+const images = [optimisedBase, optimisedPestino];
+const numImages = images.length;
 ---
 
-<div class="mx-auto relative h-64 w-64 my-8">
+<div class="mx-auto relative h-64 w-64 my-8" id="profiles">
   {
-    images.map((image, index) => <div class="absolute top-0 h-full w-full mask mask-circle bg-center bg-no-repeat" style={{backgroundImage: `url(${image.src})`}} id={`profile-${index}`}></div>)
-  }  
+    images.map((image, index) => (
+      <div
+      class=`absolute top-0 h-full w-full mask mask-circle bg-center bg-no-repeat opacity-${index === 0 ? '100' : '0'}`
+        style={{ backgroundImage: `url(${image.src})` }}
+        id={`profile-${index}`}
+      />
+    ))
+  }
 </div>
 
+<script is:inline define:vars={{ numImages: numImages }}>
+  let currentIndex = -1;
+  setInterval(() => {
+    if (++currentIndex >= numImages) {
+      currentIndex = 0;
+    }
+    let currentId = `profile-${currentIndex}`
+    let currentImage = document.getElementById(currentId);
+    let otherImages = document.querySelectorAll(`#profiles div:not([id=${currentId}])`);
+    currentImage.classList.remove('opacity-0');
+    currentImage.classList.add('opacity-100');
+    otherImages.forEach((item) => {
+      item.classList.remove('opacity-100');
+      item.classList.add('opacity-0');
+    })
+  }, 10000);
+</script>
