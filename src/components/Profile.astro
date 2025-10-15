@@ -24,7 +24,7 @@ const images = [optimisedBase, optimisedPestino];
   {
     images.map((image, index) => (
       <div
-      class=`absolute top-0 h-full w-full mask mask-circle bg-center bg-no-repeat opacity-${index === 0 ? '100' : '0'}`
+      class=`absolute top-0 left-0 h-full w-full mask mask-circle bg-center bg-no-repeat opacity-${index === 0 ? '100' : '0'}`
         style={{ backgroundImage: `url(${image.src})` }}
         id={`profile-${index}`}
       />
