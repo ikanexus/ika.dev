@@ -18,7 +18,6 @@ const optimisedPestino = await getImage({
 });
 
 const images = [optimisedBase, optimisedPestino];
-const numImages = images.length;
 ---
 
 <div class="mx-auto relative h-64 w-64 my-8" id="profiles">
@@ -33,9 +32,10 @@ const numImages = images.length;
   }
 </div>
 
-<script is:inline define:vars={{ numImages: numImages }}>
+<script>
   let currentIndex = -1;
   setInterval(() => {
+    const numImages = document.querySelectorAll('#profiles div').length;
     if (++currentIndex >= numImages) {
       currentIndex = 0;
     }
