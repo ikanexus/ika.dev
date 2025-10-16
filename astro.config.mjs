@@ -13,16 +13,8 @@ export default defineConfig({
   experimental: {
     csp: {
       directives: [
-        "default-src 'self'",
-        "font-src fonts.bunny.net",
         "img-src 'self' data:",
       ],
-      styleDirective: {
-        resources: [
-          "'self'",
-          "fonts.bunny.net"
-        ]
-      }
     }
   }
 });
