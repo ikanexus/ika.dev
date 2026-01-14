@@ -1,0 +1,12 @@
+provider = "bunny"
+remote_path = ""
+local_path = "public"
+ignore = []
+remote_ignore = []
+
+[bunny]
+storage_zone = "ika-dev"
+
+[[redirects]]
+from = "*://www.ika.dev/*"
+to = "https://ika.dev%{Url.Path}"
