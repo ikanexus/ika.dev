@@ -1,6 +1,6 @@
 provider = "bunny"
 remote_path = ""
-local_path = "public"
+local_path = "dist"
 ignore = []
 remote_ignore = []
 
